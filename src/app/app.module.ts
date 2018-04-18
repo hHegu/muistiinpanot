@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -20,9 +21,10 @@ import { NoteService } from './services/note.service';
   ],
   imports: [
     NgbModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [NoteService],
-  bootstrap: [AppComponent, NotesContainerComponent, NoteComponent, NoteEditorComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

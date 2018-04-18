@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { Note } from '../models/note';
 import { Subject } from 'rxjs/Subject';
+import { NoteService } from '../services/note.service';
 
 @Component({
   selector: 'notes-container',
   templateUrl: './notes-container.component.html'
 })
 export class NotesContainerComponent {
-
-  public notes: Note[];
   
-  constructor(){
-    this.notes = [new Note(0,"Ruokalista", "Maito, muna, leipä, juusto, margariini"),
-    new Note(0,"Ruokalista", "Maito, muna, leipä, juusto, margariini")];
+  constructor(private noteService: NoteService){
+    
   }
 
 }

@@ -1,9 +1,9 @@
-<div class="card d-inline-block m-3" style="width: 18rem;">
+<div class="card d-inline-block m-3 align-top" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{note.heading}}</h5>
-    <p class="card-text">{{note.description}}</p>
+    <p class="card-text" style="max-height: 20rem; overflow-y: auto;">{{note.description}}</p>
   </div>
-  <button class="btn btn-outline-danger" style="position: absolute;right: 6px;top: 6px;font-size: small;">
+  <button class="btn btn-outline-danger" style="position: absolute;right: 6px;top: 6px;font-size: small;" (click)="removeNote()">
     <i class="fas fa-trash-alt"></i>
   </button>
 </div>
