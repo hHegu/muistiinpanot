@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 })
 export class NotesContainerComponent {
 
-  private notes: Note[];
+  public notes: Note[];
   
   constructor(){
     this.notes = [new Note(0,"Ruokalista", "Maito, muna, leipä, juusto, margariini"),
