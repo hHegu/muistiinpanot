@@ -9,7 +9,7 @@ import { NoteService } from '../../services/note.service';
 export class NoteComponent {
     @Input() note: Note;
 
-    constructor(private noteService: NoteService) {
+    constructor(public noteService: NoteService) {
     }
 
     removeNote() {

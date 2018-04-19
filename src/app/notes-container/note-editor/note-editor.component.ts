@@ -17,7 +17,7 @@ export class NoteEditorComponent {
     private infoMessage: string;
     closeResult: string;
 
-    constructor(private modalService: NgbModal, private noteService: NoteService) {
+    constructor(public modalService: NgbModal, public noteService: NoteService) {
         this.noteService.modalToggler.subscribe((note: Note) => this.open(note))
     }
 
