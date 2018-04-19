@@ -14,6 +14,7 @@ export class NoteEditorComponent {
     @ViewChild("content") modalContent: ElementRef;
 
     private editedNote: Note;
+    private infoMessage: string;
     closeResult: string;
 
     constructor(private modalService: NgbModal, private noteService: NoteService) {
@@ -30,6 +31,8 @@ export class NoteEditorComponent {
     }
 
     private getDismissReason(reason: any): string {
+        this.infoMessage = "";
+        this.editedNote = new Note(null, null, null);
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';
         } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
@@ -39,8 +42,12 @@ export class NoteEditorComponent {
         }
     }
 
-    saveNote(){
-        this.noteService.notes.push(this.editedNote);
-        this.editedNote = new Note(null,null,null);
+    saveNote() {
+        this.noteService.postNote(this.editedNote).subscribe((note: Note) => {
+            this.noteService.notes.push(note);
+            this.editedNote = new Note(null, null, null);
+            this.infoMessage = "Muistiinpano tallennettu."
+
+        });
     }
 }

@@ -3,18 +3,20 @@ import { Note } from '../../models/note';
 import { NoteService } from '../../services/note.service';
 
 @Component({
-  selector: 'note',
-  templateUrl: './note.component.html'
+    selector: 'note',
+    templateUrl: './note.component.html'
 })
 export class NoteComponent {
-  @Input() note: Note;
+    @Input() note: Note;
 
-  constructor(private noteService: NoteService){
-    this.note = new Note(0,"Ruokalista", "Maito, muna, leipä, juusto, margariini");
-  }
+    constructor(private noteService: NoteService) {
+    }
 
-  removeNote(){
-    let index = this.noteService.notes.findIndex(note => note.id == this.note.id);
-    this.noteService.notes.splice(index, 1);
-  }
+    removeNote() {
+        this.noteService.removeNote(this.note).subscribe(() => {
+            let index = this.noteService.notes.findIndex(note => note.id == this.note.id);
+            this.noteService.notes.splice(index, 1);
+        })
+
+    }
 }

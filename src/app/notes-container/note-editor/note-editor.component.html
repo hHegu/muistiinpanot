@@ -11,6 +11,7 @@
     <textarea [(ngModel)]="editedNote.description" class="form-control border-0" style="height: 20rem;" placeholder="Kuvaus"></textarea>
   </div>
   <div class="modal-footer">
+    <p class="text-center text-success">{{infoMessage}}</p>
       <button type="button" class="btn btn-outline-success" (click)="saveNote()">Tallenna</button>
     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Peruuta</button>
   </div>

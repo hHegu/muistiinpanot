@@ -1,7 +1,14 @@
-<!-- <div class="starter-template">
-    <h1>Ei muistiinpanoja</h1>
-    <button class="lead btn btn-light text-success"><i class="far fa-plus-square"></i> Luo uusi muistiinpano</button>
-</div> -->
+<span *ngIf="noteService.notes && noteService.notesLoaded">
+    <div *ngIf="noteService.notes.length == 0" class="starter-template">
+      <h1>Ei muistiinpanoja</h1>
+      <button class="lead btn btn-light text-success">
+        <i class="far fa-plus-square"></i> Luo uusi muistiinpano</button>
+    </div>
+    <div *ngIf="noteService.notes.length > 0">
+      <note *ngFor="let note of noteService.notes" [note]="note"></note>
+    </div>
 
-
-<note *ngFor="let note of noteService.notes" [note]="note"></note>
+</span>
+<div *ngIf="!noteService.notesLoaded" style="text-align: center">
+    <i class="fas fa-spinner fa-spin fa-8x text-muted"></i>
+</div>
