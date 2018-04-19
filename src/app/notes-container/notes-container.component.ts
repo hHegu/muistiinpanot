@@ -8,9 +8,13 @@ import { NoteService } from '../services/note.service';
   templateUrl: './notes-container.component.html'
 })
 export class NotesContainerComponent {
-  
-  constructor(public noteService: NoteService){
-    
+
+  constructor(public noteService: NoteService) {
+
+  }
+
+  createNew() {
+    this.noteService.modalToggler.next(new Note(null, null, null));
   }
 
 }
