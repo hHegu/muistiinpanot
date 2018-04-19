@@ -13,7 +13,7 @@ export class NotesContainerComponent {
 
   }
 
-  createNew() {
+  public createNew() {
     this.noteService.modalToggler.next(new Note(null, null, null));
   }
 
